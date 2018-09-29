@@ -1,4 +1,4 @@
-package com.example.markabhan.donationtracker;
+package com.example.markabhan.donationtracker.controllers;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

@@ -1,4 +1,4 @@
-package com.example.markabhan.donationtracker;
+package com.example.markabhan.donationtracker.controllers;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +24,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
             }
         });
+
+
     }
 
 }
