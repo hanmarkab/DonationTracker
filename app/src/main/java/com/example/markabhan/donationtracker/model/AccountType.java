@@ -2,16 +2,20 @@ package com.example.markabhan.donationtracker.model;
 
 public enum AccountType {
     USER("User"), LOCATION_EMPLOYEE("Location Employee"), ADMIN("Administrator"),
-    CORPORATE_ANALYST("Coporate Analyst");
+    CORPORATE_ANALYST("Corporate Analyst");
 
-    private String stringRepresentation;
+    private String type;
 
-    @Override
+
     public String toString(){
-        return this.stringRepresentation;
+        return type;
     }
 
-    AccountType(String stringRep) {
-        this.stringRepresentation = stringRepresentation;
+    public String getAccountType() {
+        return this.type;
+    }
+
+    AccountType(String type) {
+        this.type = type;
     }
 }

@@ -3,7 +3,7 @@ package com.example.markabhan.donationtracker.model;
 import java.util.ArrayList;
 
 public class UserDatabase {
-    private ArrayList<User> userList;
+    private ArrayList<User> userList = new ArrayList<>();
 
     private static final UserDatabase UD = new UserDatabase();
 
