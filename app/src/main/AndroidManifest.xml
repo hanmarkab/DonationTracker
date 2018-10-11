@@ -18,6 +18,9 @@
             android:name=".LoginActivity"
             android:label="@string/action_login"/>
         <activity
+            android:name=".RegistrationActivity"
+            android:label="Registration"/>
+        <activity
             android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -30,9 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".RegistrationActivity"
-            android:label="Registration"/>
     </application>
 
 </manifest>
