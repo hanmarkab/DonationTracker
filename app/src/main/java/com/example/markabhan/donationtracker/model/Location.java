@@ -113,6 +113,6 @@ public class Location {
 
     public String toString() {
         return name + "\t" + Double.toString(longitude) + "\t" + Double.toString(latitude) + "\t" + address
-                + "\t" + state + "\t" + Integer.toString(zip) + "\t" + phonenum + "\t" + type.toString() + "/t";
+                + "\t" + state + "\t" + Integer.toString(zip) + "\t" + phonenum + "\t" + type.toString() + "\n";
     }
 }
