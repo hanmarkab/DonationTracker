@@ -20,8 +20,10 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
+import android.widget.Button;
 
 public class WelcomeActivity extends AppCompatActivity {
+    private Button button1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,43 +44,56 @@ public class WelcomeActivity extends AppCompatActivity {
         Log.d("displayed", "Im here");
         ArrayList<Location> locations = enterLocations();
         String displayed = "";
-        for (Location l: locations)
-            displayed += l.toString() + "\n";
+        for (Location l : locations)
+            displayed += (Integer.toString(l.getId())) + ") " + l.getName() + "\n\n";
         Log.d("displayed", locations.size() + "");
         locationView.setText(displayed);
 
-    }
-
-    public ArrayList<Location> enterLocations() {
-        ArrayList<Location> locationList = new ArrayList<>();
-        try {
-            BufferedReader scanner = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
-            scanner.readLine();
-            String sc = scanner.readLine();
-            while (sc != null) {
-                Log.d("displayed", sc);
-                String[] x = sc.split(",");
-                Location location = new Location();
-                location.setId(Integer.parseInt(x[0]));
-                location.setName(x[1]);
-                location.setLatitude(Double.parseDouble(x[2]));
-                location.setLatitude(Double.parseDouble(x[3]));
-                location.setAddress(x[4]);
-                location.setCity(x[5]);
-                location.setState(x[6]);
-                location.setZip(Integer.parseInt(x[7]));
-                location.setType(x[8]);
-                location.setPhonenum(x[9]);
-                locationList.add(location);
-                sc = scanner.readLine();
+        button1 = (Button) findViewById(R.id.Location1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                openLocation1Activity();
             }
-            scanner.close();
-        } catch (Exception f) {
-            Log.d("displayed","File not read");
-        }
-        Log.d("displayed", "finsihed");
-        return locationList;
 
+
+        });
     }
 
-}
+        public void openLocation1Activity() {
+            Intent intent = new Intent(this, Location1Activity.class);
+            startActivity(intent);
+        }
+
+        public ArrayList<Location> enterLocations () {
+            ArrayList<Location> locationList = new ArrayList<>();
+            try {
+                BufferedReader scanner = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
+                scanner.readLine();
+                String sc = scanner.readLine();
+                while (sc != null) {
+                    Log.d("displayed", sc);
+                    String[] x = sc.split(",");
+                    Location location = new Location();
+                    location.setId(Integer.parseInt(x[0]));
+                    location.setName(x[1]);
+                    location.setLatitude(Double.parseDouble(x[2]));
+                    location.setLatitude(Double.parseDouble(x[3]));
+                    location.setAddress(x[4]);
+                    location.setCity(x[5]);
+                    location.setState(x[6]);
+                    location.setZip(Integer.parseInt(x[7]));
+                    location.setType(x[8]);
+                    location.setPhonenum(x[9]);
+                    locationList.add(location);
+                    sc = scanner.readLine();
+                }
+                scanner.close();
+            } catch (Exception f) {
+                Log.d("displayed", "File not read");
+            }
+            Log.d("displayed", "finsihed");
+            return locationList;
+
+        }
+
+    }

@@ -16,10 +16,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/action_login"/>
+            android:label="@string/action_login" />
         <activity
             android:name=".RegistrationActivity"
-            android:label="Registration"/>
+            android:label="Registration" />
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/title_activity_welcome"
@@ -33,6 +33,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Location1_Details" />
+        <activity android:name=".Location1Activity"></activity>
     </application>
 
 </manifest>

@@ -18,5 +18,11 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="Location1">Location1</string>
+    <string name="Location2">Location2</string>
+    <string name="Location3">Location3</string>
+    <string name="Location4">Location4</string>
+    <string name="Location5">Location5</string>
+    <string name="Location6">Location6</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
 </resources>
