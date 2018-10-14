@@ -62,7 +62,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
 
         ListView listView = findViewById(R.id.LocationsListView);
-        ArrayAdapter<String> adpter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, locationName);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, locationName);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
