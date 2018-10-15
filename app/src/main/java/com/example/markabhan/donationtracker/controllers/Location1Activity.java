@@ -4,6 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import com.example.markabhan.donationtracker.model.Location;
+
 public class Location1Activity extends AppCompatActivity {
 
 
@@ -11,6 +14,13 @@ public class Location1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location1);
-        setTitle("Location1");
+
+        int index = this.getIntent().getIntExtra("index", -1);
+        ArrayList<Location> locations = (ArrayList<Location>) this.getIntent().getExtras().getSerializable("list");
+        setTitle(locations.get(index).getName());
+
+        TextView locationTextView = (TextView) findViewById(R.id.locationTextView);
+
+        locationTextView.setText(locations.get(index).toString());
     }
 }

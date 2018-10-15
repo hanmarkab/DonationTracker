@@ -58,16 +58,23 @@ public class WelcomeActivity extends AppCompatActivity {
         ArrayList<Location> locations = enterLocations();
         String[] locationName = new String[locations.size()];
         for (int i = 0; i < locations.size(); i ++) {
-            locationName[i] = locations.get(i).toString();
+            locationName[i] = locations.get(i).getName();
         }
+
+        final ArrayList<Location> locationIntent = locations;
 
         ListView listView = findViewById(R.id.LocationsListView);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, locationName);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(WelcomeActivity.this, Location1Activity.class);
+
+                intent.putExtra("index", position);
+                intent.putExtra("list", locationIntent);
+
                 startActivity(intent);
 
             }

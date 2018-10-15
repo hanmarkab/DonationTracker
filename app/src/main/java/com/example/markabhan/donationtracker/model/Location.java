@@ -1,6 +1,8 @@
 package com.example.markabhan.donationtracker.model;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     String name;
     double longitude;
     double latitude;
@@ -112,7 +114,8 @@ public class Location {
     }
 
     public String toString() {
-        return name + "\t" + Double.toString(longitude) + "\t" + Double.toString(latitude) + "\t" + address
-                + "\t" + state + "\t" + Integer.toString(zip) + "\t" + phonenum + "\t" + type.toString() + "\n";
+        return "\nName: " + name + "\n\nLongitude: " + Double.toString(longitude) + "\n\nLatitude: " + Double.toString(latitude)
+                + "\n\nAddress: " + address + "\n\nState: " + state + "\n\nZip Code: " + Integer.toString(zip) + "\n\nPhone Number: "
+                + phonenum + "\n\nLocation Type: " + type.toString();
     }
 }
