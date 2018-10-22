@@ -45,16 +45,6 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        /*TextView locationView = findViewById(R.id.textView3);
-        Log.d("displayed", "Im here");
-        ArrayList<Location> locations = enterLocations();
-        String displayed = "";
-
-        for (Location l : locations)
-            displayed += (Integer.toString(l.getId())) + ") " + l.getName() + "\n\n";
-        Log.d("displayed", locations.size() + "");
-        locationView.setText(displayed);*/
-
         ArrayList<Location> locations = enterLocations();
         String[] locationName = new String[locations.size()];
         for (int i = 0; i < locations.size(); i ++) {
@@ -81,57 +71,9 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
 
-        /*button1 = findViewById(R.id.Location1);
-
-        Button button2 = findViewById(R.id.Location2);
-        Button button3 = findViewById(R.id.Location3);
-
-        Button button4 = findViewById(R.id.Location4);
-        Button button5 = findViewById(R.id.Location5);
-        Button button6 = findViewById(R.id.Location6);
 
 
-
-
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
-        button5.setOnClickListener(this);
-        button6.setOnClickListener(this);
-        */
     }
-
-        /*
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.button1:
-                    openLocation1Activity();
-                    break;
-                case R.id.button2:
-                    openLocation2Activity();
-                    break;
-                case R.id.button3:
-                    openLocation3Activity();
-            }
-        }
-
-
-        public void openLocation1Activity() {
-            Intent intent = new Intent(this, Location1Activity.class);
-            startActivity(intent);
-        }
-
-        public void openLocation2Activity() {
-            Intent intent = new Intent(this, Location2Activity.class);
-            startActivity(intent);
-        }
-        public void openLocation3Activity() {
-            Intent intent = new Intent(this, Location3Activity.class);
-            startActivity(intent);
-        }
-
-        */
 
 
     public ArrayList<Location> enterLocations () {

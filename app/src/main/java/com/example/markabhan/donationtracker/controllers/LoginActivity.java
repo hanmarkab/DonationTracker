@@ -35,6 +35,7 @@ import java.util.List;
 
 import com.example.markabhan.donationtracker.model.User;
 import com.example.markabhan.donationtracker.model.UserDatabase;
+import com.example.markabhan.donationtracker.model.AccountType;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -301,6 +302,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         private final String mEmail;
         private final String mPassword;
+        private User correctUser;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
@@ -319,7 +321,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             for (User user : UserDatabase.getInstance().getUserList()) {
                 if (user.getUsername().equals(mEmail)) {
                     // Account exists, return true if the password matches.
-                    return user.getPassword().equals(mPassword);
+                    correctUser = user;
+                    if (user.getPassword().equals(mPassword)) {
+                        user.setActive(true);
+                        return true;
+                    }
                 }
             }
 
@@ -333,7 +339,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
+                if (correctUser.getType().equals(AccountType.LOCATION_EMPLOYEE)) {
+                    startActivity(new Intent(LoginActivity.this, LocationEmployeePageActivity.class));
+                } else {
+                    startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
+                }
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

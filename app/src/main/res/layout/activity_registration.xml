@@ -78,6 +78,11 @@
                 android:layout_marginTop="16dp" />
 
 
+            <Spinner
+                android:id="@+id/locationSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:id="@+id/register_button"
                 style="?android:textAppearanceSmall"

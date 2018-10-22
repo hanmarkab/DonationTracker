@@ -1,6 +1,8 @@
 package com.example.markabhan.donationtracker.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Location implements Serializable {
     String name;
@@ -13,12 +15,14 @@ public class Location implements Serializable {
     String type;
     String phonenum;
     int id;
+    List<Location> locationList;
+    ArrayList<Donation> donationList;
 
     public Location() {
-        this(null,0.0,0.0,null,null,null,0,null,0,null);
+        this(null,0.0,0.0,null,null,null,0,null,0,null, null, new ArrayList<Donation>());
     }
 
-    public Location(String name, double longitude, double latitude, String address, String city, String state, int zip, String phonenum, int id, String type) {
+    public Location(String name, double longitude, double latitude, String address, String city, String state, int zip, String phonenum, int id, String type, List<Location> locationList, ArrayList<Donation> donationList) {
         this.name = name;
         this.longitude = longitude;
         this.latitude = latitude;
@@ -28,7 +32,9 @@ public class Location implements Serializable {
         this.zip = zip;
         this.id = id;
         this.type = type;
-        id = LocationDatabase.getInstance().size();
+        this.id = LocationDatabase.getInstance().size();
+        this.locationList = new ArrayList<>();
+        this.donationList = new ArrayList<>();
     }
 
     public String getName() {
@@ -71,6 +77,14 @@ public class Location implements Serializable {
         return type;
     }
 
+    public List<Location> getLocationList() {
+        return locationList;
+    }
+
+    public ArrayList<Donation> getDonationList() {
+        return donationList;
+    }
+
     /*end of getters beginning of setters*/
 
     public void setName(String name) {
@@ -111,6 +125,14 @@ public class Location implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setLocationList(List<Location> locationList) {
+        this.locationList = locationList;
+    }
+
+    public void setDonationList(ArrayList<Donation> donationList) {
+        this.donationList = donationList;
     }
 
     public String toString() {

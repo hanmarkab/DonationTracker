@@ -1,5 +1,4 @@
 package com.example.markabhan.donationtracker.model;
-
 import java.util.ArrayList;
 
 public class LocationDatabase {
