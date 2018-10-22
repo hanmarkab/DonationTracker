@@ -9,10 +9,6 @@ public class User {
     Location userLocation;
     boolean active;
 
-    /*public User(String name, String username, String password, AccountType type) {
-        this(name, username, password, type, null);
-    }*/
-
     public User(String name, String username, String password, AccountType type, boolean active) {
         this.name = name;
         this.username = username;

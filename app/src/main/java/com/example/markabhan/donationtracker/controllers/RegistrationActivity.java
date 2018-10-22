@@ -3,18 +3,13 @@ package com.example.markabhan.donationtracker.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.markabhan.donationtracker.model.AccountType;
 import com.example.markabhan.donationtracker.model.Location;
@@ -22,9 +17,6 @@ import com.example.markabhan.donationtracker.model.User;
 import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.LocationDatabase;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -55,7 +47,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         mLocationSpinner = findViewById(R.id.locationSpinner);
 
-        final List<Location> fullLocationArray = enterLocations();
+        final List<Location> fullLocationArray = LocationDatabase.getInstance().getLocationList();
         String[] locationArray = new String[fullLocationArray.size()];
 
         for (int i = 0; i < locationArray.length; i++) {
@@ -101,38 +93,4 @@ public class RegistrationActivity extends AppCompatActivity {
         });
         mRegistrationFormView = findViewById(R.id.registration_form);
     }
-
-    public ArrayList<Location> enterLocations () {
-        ArrayList<Location> locationList = new ArrayList<>();
-        try {
-            BufferedReader scanner = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
-            scanner.readLine();
-            String sc = scanner.readLine();
-            while (sc != null) {
-                Log.d("displayed", sc);
-                String[] x = sc.split(",");
-                Location location = new Location();
-                location.setId(Integer.parseInt(x[0]));
-                location.setName(x[1]);
-                location.setLatitude(Double.parseDouble(x[2]));
-                location.setLatitude(Double.parseDouble(x[3]));
-                location.setAddress(x[4]);
-                location.setCity(x[5]);
-                location.setState(x[6]);
-                location.setZip(Integer.parseInt(x[7]));
-                location.setType(x[8]);
-                location.setPhonenum(x[9]);
-                locationList.add(location);
-                sc = scanner.readLine();
-            }
-            scanner.close();
-        } catch (Exception f) {
-            Log.d("displayed", "File not read");
-        }
-        Log.d("displayed", "finsihed");
-        return locationList;
-
-    }
-
-
 }

@@ -2,9 +2,14 @@ package com.example.markabhan.donationtracker.model;
 import java.util.ArrayList;
 
 public class LocationDatabase {
-    private ArrayList<Location> locationList = new ArrayList<>();
 
-    private static final LocationDatabase LD = new LocationDatabase();
+    private static ArrayList<Location> locationList = new ArrayList<>();
+
+    public LocationDatabase(ArrayList<Location> locationList) {
+        this.locationList = locationList;
+    }
+
+    private static final LocationDatabase LD = new LocationDatabase(locationList);
 
     public static LocationDatabase getInstance() {
         return LD;

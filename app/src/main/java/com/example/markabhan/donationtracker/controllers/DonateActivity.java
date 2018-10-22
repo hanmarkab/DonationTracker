@@ -27,9 +27,6 @@ import com.example.markabhan.donationtracker.model.User;
 
 public class DonateActivity extends AppCompatActivity {
 
-    /*public class SimpleStudentRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleStudentRecyclerViewAdapter.ViewHolder>*/
-
     private User activeUser;
     private Location userLocation;
 
