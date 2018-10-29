@@ -15,10 +15,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Spinner
+                android:id="@+id/locationSelectSpinner"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+
+            <Spinner
+                android:id="@+id/typeSelectSpinner"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
             <SearchView
                 android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+
+            <ListView
+                android:id="@+id/DonationsListView"
+                android:layout_width="match_parent"
+                android:layout_height="402dp" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab"
@@ -27,10 +49,6 @@
                 android:layout_gravity="bottom|end"
                 android:layout_margin="@dimen/fab_margin" />
 
-            <ListView
-                android:id="@+id/DonationsListView"
-                android:layout_width="match_parent"
-                android:layout_height="402dp" />
 
         </LinearLayout>
     </ScrollView>

@@ -1,5 +1,6 @@
 package com.example.markabhan.donationtracker.controllers;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,12 +16,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import com.example.markabhan.donationtracker.model.AccountType;
 import com.example.markabhan.donationtracker.model.Donation;
+import com.example.markabhan.donationtracker.model.LocationDatabase;
 import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.User;
@@ -29,6 +36,11 @@ public class DonateActivity extends AppCompatActivity {
 
     private User activeUser;
     private Location userLocation;
+    private SearchView search;
+    private Spinner locationTypeSpinner;
+    private Spinner searchTypeSpinner;
+    private List list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +59,32 @@ public class DonateActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Create Location selection spinner
+        Spinner locationTypeSpinner = (Spinner) findViewById(R.id.locationSelectSpinner);
+
+        List<Location> fullLocationArray = LocationDatabase.getInstance().getLocationList();
+        ArrayAdapter<String> locationTypeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, fullLocationArray);
+        locationTypeAdapter.add("All Locations");
+        locationTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationTypeSpinner.setAdapter(locationTypeAdapter);
+
+        //Create Search Type Spinner
+        Spinner searchTypeSpinner = (Spinner) findViewById(R.id.typeSelectSpinner);
+
+        ArrayList<String> fullTypesArray = new ArrayList<>();
+        fullTypesArray.add("Category");
+        fullTypesArray.add("Name");
+        ArrayAdapter<String> searchTypeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, fullTypesArray);
+        searchTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        searchTypeSpinner.setAdapter(searchTypeAdapter);
+
+        //code the search itself
+
+        SearchView search = (SearchView) findViewById(R.id.search_bar);
+
+
+
 
         for (User user : UserDatabase.getInstance().getUserList()) {
             if (user.isActive()) {
@@ -79,6 +117,7 @@ public class DonateActivity extends AppCompatActivity {
         });
 
     }
+
 
 
 
