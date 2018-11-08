@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 location.setId(Integer.parseInt(x[0]));
                 location.setName(x[1]);
                 location.setLatitude(Double.parseDouble(x[2]));
-                location.setLatitude(Double.parseDouble(x[3]));
+                location.setLongitude(Double.parseDouble(x[3]));
                 location.setAddress(x[4]);
                 location.setCity(x[5]);
                 location.setState(x[6]);

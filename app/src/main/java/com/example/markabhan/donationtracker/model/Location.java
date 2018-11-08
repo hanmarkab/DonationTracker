@@ -41,8 +41,8 @@ public class Location implements Serializable {
         return name;
     }
 
-    public String getLongitude() {
-        return name;
+    public double getLongitude() {
+        return longitude;
     }
 
     public double getLatitude() {
