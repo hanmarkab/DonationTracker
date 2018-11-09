@@ -15,10 +15,11 @@ public class DonationInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donation_info);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         int index = this.getIntent().getIntExtra("index", -1);
+        //noinspection unchecked
         List<Donation> donations = (List<Donation>) this.getIntent().getExtras().getSerializable("list");
         setTitle(donations.get(index).getName());
 

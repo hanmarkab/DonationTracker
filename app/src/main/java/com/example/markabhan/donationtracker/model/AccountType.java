@@ -1,4 +1,5 @@
-package com.example.markabhan.donationtracker.model;
+
+ package com.example.markabhan.donationtracker.model;
 
 public enum AccountType {
     USER("User"), LOCATION_EMPLOYEE("Location Employee"), ADMIN("Administrator"),

@@ -2,7 +2,7 @@ package com.example.markabhan.donationtracker.model;
 
 public enum DonationCategory {
     CLOTHING("Clothing"), HAT("Hat"), KITCHEN("Kitchen"), ELECTRONICS("Electronics"),
-    HOUSEHOLD("Household"), OTHER("Onther");
+    HOUSEHOLD("Household"), OTHER("Other");
 
     private String type;
 

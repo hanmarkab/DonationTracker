@@ -23,7 +23,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
-    private View mRegistrationFormView;
     private AutoCompleteTextView mNameView;
     private Spinner mAccountTypeSpinner;
     private Spinner mLocationSpinner;
@@ -33,14 +32,15 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        mNameView = (AutoCompleteTextView) findViewById(R.id.name);
+        mNameView = findViewById(R.id.name);
 
-        mUsernameView = (AutoCompleteTextView) findViewById(R.id.username);
+        mUsernameView = findViewById(R.id.username);
 
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
 
-        mAccountTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        mAccountTypeSpinner = findViewById(R.id.spinner);
 
+        //noinspection unchecked,unchecked
         ArrayAdapter<String> accountTypeAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, AccountType.values());
         accountTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mAccountTypeSpinner.setAdapter(accountTypeAdapter);
@@ -48,7 +48,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mLocationSpinner = findViewById(R.id.locationSpinner);
 
         final List<Location> fullLocationArray = LocationDatabase.getInstance().getLocationList();
-        String[] locationArray = new String[fullLocationArray.size()];
+        /*String[] locationArray = new String[fullLocationArray.size()];
 
         for (int i = 0; i < locationArray.length; i++) {
             StringBuilder tempString = new StringBuilder(fullLocationArray.get(i).getName().toLowerCase());
@@ -56,7 +56,11 @@ public class RegistrationActivity extends AppCompatActivity {
             tempString.setCharAt(0, Character.toUpperCase(tempString.charAt(0)));
             System.out.println(tempString);
             locationArray[i] = tempString.toString();
-        }
+        }*/
+
+        String[] locationArray = manipulateLocationList(fullLocationArray);
+
+        //noinspection unchecked,unchecked
         ArrayAdapter<String> locationAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationArray);
         locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mLocationSpinner.setAdapter(locationAdapter);
@@ -77,7 +81,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
 
 
-        final Button mRegisterButton = (Button) findViewById(R.id.register_button);
+        final Button mRegisterButton = findViewById(R.id.register_button);
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +95,19 @@ public class RegistrationActivity extends AppCompatActivity {
                 startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             }
         });
-        mRegistrationFormView = findViewById(R.id.registration_form);
+    }
+
+    public String[] manipulateLocationList(List<Location> fullLocationArray) {
+        String[] locationArray = new String[fullLocationArray.size()];
+
+        for (int i = 0; i < locationArray.length; i++) {
+            StringBuilder tempString = new StringBuilder(fullLocationArray.get(i).getName().toLowerCase());
+            System.out.println(tempString);
+            tempString.setCharAt(0, Character.toUpperCase(tempString.charAt(0)));
+            System.out.println(tempString);
+            locationArray[i] = tempString.toString();
+        }
+
+        return locationArray;
     }
 }

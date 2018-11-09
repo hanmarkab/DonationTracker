@@ -8,16 +8,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.markabhan.donationtracker.model.LocationDatabase;
-import com.example.markabhan.donationtracker.model.LocationType;
 import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.Location;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         UserDatabase userData = new UserDatabase();
 
-        Button loginScreenButton = (Button) findViewById(R.id.go_to_login_button);
+        Button loginScreenButton = findViewById(R.id.go_to_login_button);
         loginScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button registerScreenButton = (Button) findViewById(R.id.go_to_registration_button);
+        Button registerScreenButton = findViewById(R.id.go_to_registration_button);
         registerScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception f) {
             Log.d("displayed", "File not read");
         }
-        Log.d("displayed", "finsihed");
+        Log.d("displayed", "finished");
         return locationList;
 
     }
