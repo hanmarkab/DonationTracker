@@ -7,14 +7,6 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
-    <!--
-         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
-         Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
-    -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -53,35 +45,7 @@
         <activity
             android:name=".DonationInfoActivity"
             android:label="@string/title_activity_donation_info"
-<<<<<<< HEAD
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-=======
-            android:theme="@style/AppTheme.NoActionBar" />
->>>>>>> 6baa587b07bdbb2558c93f8aa63494466c9280cb
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-<<<<<<< HEAD
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-=======
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
->>>>>>> 6baa587b07bdbb2558c93f8aa63494466c9280cb
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-<<<<<<< HEAD
-
-=======
->>>>>>> 6baa587b07bdbb2558c93f8aa63494466c9280cb
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
