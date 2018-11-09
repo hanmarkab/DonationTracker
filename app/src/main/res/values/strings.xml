@@ -28,4 +28,5 @@
     <string name="title_activity_location_employee_page">LocationEmployeePageActivity</string>
     <string name="title_activity_donate">DonateActivity</string>
     <string name="title_activity_donation_info">DonationInfoActivity</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
