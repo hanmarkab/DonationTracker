@@ -25,63 +25,63 @@
         android:id="@+id/time_stamp_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time Stamp" />
+        android:text="@string/time_stamp" />
 
     <EditText
         android:id="@+id/time_stamp_input"
         android:layout_width="353dp"
         android:layout_height="42dp"
         android:ems="10"
-        android:hint="Time Stamp"
+        android:hint="@string/time_stamp"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/short_description_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description:" />
+        android:text="@string/description" />
 
     <EditText
         android:id="@+id/description_input"
         android:layout_width="354dp"
         android:layout_height="47dp"
         android:ems="10"
-        android:hint="Description"
+        android:hint="@string/description"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/estimated_value_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Estimated Value" />
+        android:text="@string/estimated_value" />
 
     <EditText
         android:id="@+id/estimated_value_input"
         android:layout_width="215dp"
         android:layout_height="38dp"
         android:ems="10"
-        android:hint="Estimated Value"
+        android:hint="@string/estimated_value"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/full_description_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full Description" />
+        android:text="@string/full_description" />
 
     <EditText
         android:id="@+id/full_description_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Full Description"
+        android:hint="@string/full_description"
         android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/donation_category_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category" />
+        android:text="@string/category" />
 
     <Spinner
         android:id="@+id/category_spinner"
@@ -92,14 +92,14 @@
         android:id="@+id/comment_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comments" />
+        android:text="@string/category" />
 
     <EditText
         android:id="@+id/comment_input"
         android:layout_width="wrap_content"
         android:layout_height="49dp"
         android:ems="10"
-        android:hint="Comments"
+        android:hint="@string/category"
         android:inputType="textPersonName" />
 
 
@@ -107,7 +107,7 @@
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:text="@string/add" />
 
         </LinearLayout>
     </ScrollView>

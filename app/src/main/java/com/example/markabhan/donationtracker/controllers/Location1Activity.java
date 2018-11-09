@@ -16,10 +16,11 @@ public class Location1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_location1);
 
         int index = this.getIntent().getIntExtra("index", -1);
+        //noinspection unchecked
         ArrayList<Location> locations = (ArrayList<Location>) this.getIntent().getExtras().getSerializable("list");
         setTitle(locations.get(index).getName());
 
-        TextView locationTextView = (TextView) findViewById(R.id.locationTextView);
+        TextView locationTextView = findViewById(R.id.locationTextView);
 
         locationTextView.setText(locations.get(index).toString());
     }
