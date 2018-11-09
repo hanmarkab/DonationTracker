@@ -138,6 +138,6 @@ public class Location implements Serializable {
     public String toString() {
         return "\nName: " + name + "\n\nLongitude: " + Double.toString(longitude) + "\n\nLatitude: " + Double.toString(latitude)
                 + "\n\nAddress: " + address + "\n\nState: " + state + "\n\nZip Code: " + Integer.toString(zip) + "\n\nPhone Number: "
-                + phonenum + "\n\nLocation Type: " + type.toString();
+                + phonenum + "\n\nLocation Type: " + type;
     }
 }

@@ -15,6 +15,16 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="location_list">List of Locations</string>
+    <string name="comments">Comments</string>
+    <string name="add">Add</string>
+    <string name="donation_list">List of donations</string>
+    <string name="TextView">TextView</string>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="full_description">Full Description</string>
+    <string name="estimated_value">Estimated Value</string>
+    <string name="time_stamp">Time Stamp</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>

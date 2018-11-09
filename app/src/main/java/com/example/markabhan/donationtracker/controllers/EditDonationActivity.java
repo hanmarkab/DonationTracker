@@ -9,9 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.os.Bundle;
 
-import com.example.markabhan.donationtracker.model.AccountType;
 import com.example.markabhan.donationtracker.model.DonationCategory;
-import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.Donation;
 import com.example.markabhan.donationtracker.model.User;
 import com.example.markabhan.donationtracker.model.UserDatabase;
@@ -39,6 +37,7 @@ public class EditDonationActivity extends AppCompatActivity {
         categorySpinner = findViewById(R.id.category_spinner);
         commentsText = findViewById(R.id.comment_input);
 
+        //noinspection unchecked,unchecked
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, DonationCategory.values());
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(categoryAdapter);
