@@ -53,9 +53,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Location location = locations.get(i);
             double lat = location.getLatitude();
             double lon = location.getLongitude();
-            System.out.println(location.getName() + lat + " " + lon);
             LatLng loc = new LatLng(lat, lon);
-            mMap.addMarker(new MarkerOptions().position(loc).title("Marker"));
+            mMap.addMarker(new MarkerOptions().position(loc).title(location.getName() + " " + location.getPhonenum()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
     }
