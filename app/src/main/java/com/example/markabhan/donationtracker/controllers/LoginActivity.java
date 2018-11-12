@@ -32,6 +32,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.markabhan.donationtracker.model.LoginUtil;
 import com.example.markabhan.donationtracker.model.User;
 import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.AccountType;
@@ -187,12 +188,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
         return true;
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return true;
     }
 
@@ -269,25 +268,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-            for (User user : UserDatabase.getInstance().getUserList()) {
-                if (user.getUsername().equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    correctUser = user;
-                    if (user.getPassword().equals(mPassword)) {
-                        user.setActive(true);
-                        return true;
-                    }
-                }
-            }
 
-            // TODO: register the new account here.
+            correctUser = LoginUtil.checkLogin(mEmail, mPassword);
+
+            if (correctUser != null) {
+                return true;
+            }
             return false;
         }
 
