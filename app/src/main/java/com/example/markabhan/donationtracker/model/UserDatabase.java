@@ -26,4 +26,8 @@ public class UserDatabase {
     public ArrayList<User> getUserList() {
         return userList;
     }
+
+    public void clear() {
+        userList = new ArrayList<>();
+    }
 }
