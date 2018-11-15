@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import com.example.markabhan.donationtracker.model.Donation;
+import com.example.markabhan.donationtracker.model.DonationConverter;
 import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.User;
@@ -48,11 +49,7 @@ public class DonateActivity extends AppCompatActivity {
 
 
         final ArrayList<Donation> donationArrayList = Objects.requireNonNull(userLocation).getDonationList();
-        String[] donationName = new String[donationArrayList.size()];
-
-        for (int i = 0; i < donationArrayList.size(); i++) {
-            donationName[i] = donationArrayList.get(i).getName();
-        }
+        String[] donationName = DonationConverter.convert(donationArrayList);
 
         ListView listView = findViewById(R.id.DonationsListView);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, donationName);

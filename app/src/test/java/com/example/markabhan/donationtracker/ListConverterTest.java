@@ -1,5 +1,6 @@
 package com.example.markabhan.donationtracker;
 
+import com.example.markabhan.donationtracker.model.DonationCategory;
 import com.example.markabhan.donationtracker.model.ListConverter;
 import com.example.markabhan.donationtracker.model.Location;
 
