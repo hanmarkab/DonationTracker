@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.markabhan.donationtracker.model.AccountType;
+import com.example.markabhan.donationtracker.model.ListConverter;
 import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.User;
 import com.example.markabhan.donationtracker.model.UserDatabase;
@@ -48,17 +49,8 @@ public class RegistrationActivity extends AppCompatActivity {
         mLocationSpinner = findViewById(R.id.locationSpinner);
 
         final List<Location> fullLocationArray = LocationDatabase.getInstance().getLocationList();
-        /*String[] locationArray = new String[fullLocationArray.size()];
 
-        for (int i = 0; i < locationArray.length; i++) {
-            StringBuilder tempString = new StringBuilder(fullLocationArray.get(i).getName().toLowerCase());
-            System.out.println(tempString);
-            tempString.setCharAt(0, Character.toUpperCase(tempString.charAt(0)));
-            System.out.println(tempString);
-            locationArray[i] = tempString.toString();
-        }*/
-
-        String[] locationArray = manipulateLocationList(fullLocationArray);
+        String[] locationArray = ListConverter.manipulateLocationList(fullLocationArray);
 
         //noinspection unchecked,unchecked
         ArrayAdapter<String> locationAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationArray);
@@ -95,19 +87,5 @@ public class RegistrationActivity extends AppCompatActivity {
                 startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             }
         });
-    }
-
-    private String[] manipulateLocationList(List<Location> fullLocationArray) {
-        String[] locationArray = new String[fullLocationArray.size()];
-
-        for (int i = 0; i < locationArray.length; i++) {
-            StringBuilder tempString = new StringBuilder(fullLocationArray.get(i).getName().toLowerCase());
-            System.out.println(tempString);
-            tempString.setCharAt(0, Character.toUpperCase(tempString.charAt(0)));
-            System.out.println(tempString);
-            locationArray[i] = tempString.toString();
-        }
-
-        return locationArray;
     }
 }
