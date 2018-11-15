@@ -1,7 +1,5 @@
 package com.example.markabhan.donationtracker;
 
-import android.service.autofill.UserData;
-
 import com.example.markabhan.donationtracker.model.AccountType;
 import com.example.markabhan.donationtracker.model.LoginUtil;
 import com.example.markabhan.donationtracker.model.User;

@@ -17,12 +17,6 @@ import android.widget.ListView;
 import android.widget.Button;
 
 public class WelcomeActivity extends AppCompatActivity {
-    public ArrayList<Location> locationsList;
-    private Button button;
-
-    public ArrayList<Location> getLocationsList() {
-        return locationsList;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +58,15 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        button = findViewById(R.id.button);
-        ((View) button).setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMapActivity();
             }
         });
     }
-    public void openMapActivity() {
+    private void openMapActivity() {
         Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
     }

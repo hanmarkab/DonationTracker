@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"ALL", "unused"})
 public class Location implements Serializable {
     String name;
     double longitude;

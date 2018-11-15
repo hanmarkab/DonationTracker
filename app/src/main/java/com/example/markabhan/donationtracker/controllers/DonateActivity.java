@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.example.markabhan.donationtracker.model.Donation;
 import com.example.markabhan.donationtracker.model.UserDatabase;
@@ -19,16 +20,14 @@ import com.example.markabhan.donationtracker.model.User;
 
 public class DonateActivity extends AppCompatActivity {
 
-    @SuppressWarnings("FieldCanBeLocal")
-    private User activeUser;
-    private Location userLocation;
+    //private Location userLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donate);
 
-
+        Location userLocation = null;
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -43,13 +42,12 @@ public class DonateActivity extends AppCompatActivity {
 
         for (User user : UserDatabase.getInstance().getUserList()) {
             if (user.isActive()) {
-                activeUser = user;
                 userLocation = user.getUserLocation();
             }
         }
 
 
-        final ArrayList<Donation> donationArrayList = userLocation.getDonationList();
+        final ArrayList<Donation> donationArrayList = Objects.requireNonNull(userLocation).getDonationList();
         String[] donationName = new String[donationArrayList.size()];
 
         for (int i = 0; i < donationArrayList.size(); i++) {

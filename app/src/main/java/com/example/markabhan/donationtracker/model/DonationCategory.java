@@ -4,7 +4,7 @@ public enum DonationCategory {
     CLOTHING("Clothing"), HAT("Hat"), KITCHEN("Kitchen"), ELECTRONICS("Electronics"),
     HOUSEHOLD("Household"), OTHER("Other");
 
-    private String type;
+    private final String type;
 
     public String toString() {
         return type;

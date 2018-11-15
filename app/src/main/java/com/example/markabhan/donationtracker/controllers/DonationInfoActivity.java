@@ -9,6 +9,7 @@ import com.example.markabhan.donationtracker.model.Donation;
 
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class DonationInfoActivity extends AppCompatActivity {
 
     @Override

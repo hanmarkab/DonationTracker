@@ -1,6 +1,7 @@
 
  package com.example.markabhan.donationtracker.model;
 
+@SuppressWarnings({"ALL", "unused"})
 public enum AccountType {
     USER("User"), LOCATION_EMPLOYEE("Location Employee"), ADMIN("Administrator"),
     CORPORATE_ANALYST("Corporate Analyst");

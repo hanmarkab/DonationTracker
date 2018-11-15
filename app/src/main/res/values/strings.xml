@@ -39,4 +39,5 @@
     <string name="title_activity_donate">DonateActivity</string>
     <string name="title_activity_donation_info">DonationInfoActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="map_view">Map View</string>
 </resources>

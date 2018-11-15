@@ -34,7 +34,6 @@ import java.util.List;
 
 import com.example.markabhan.donationtracker.model.LoginUtil;
 import com.example.markabhan.donationtracker.model.User;
-import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.AccountType;
 
 import static android.Manifest.permission.READ_CONTACTS;

@@ -97,7 +97,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    public String[] manipulateLocationList(List<Location> fullLocationArray) {
+    private String[] manipulateLocationList(List<Location> fullLocationArray) {
         String[] locationArray = new String[fullLocationArray.size()];
 
         for (int i = 0; i < locationArray.length; i++) {

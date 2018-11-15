@@ -7,6 +7,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import com.example.markabhan.donationtracker.model.Location;
 
+@SuppressWarnings("ALL")
 public class Location1Activity extends AppCompatActivity {
 
 

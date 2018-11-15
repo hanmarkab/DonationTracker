@@ -13,9 +13,9 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+@SuppressWarnings("ALL")
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
 
          //Trying to get location lat, long data
         ArrayList<Location> locations = LocationDatabase.getInstance().getLocationList();

@@ -1,13 +1,13 @@
 package com.example.markabhan.donationtracker.model;
 
 public class User {
-    String name;
-    String username;
-    String password;
-    int id;
-    AccountType type;
-    Location userLocation;
-    boolean active;
+    private String name;
+    private String username;
+    private String password;
+    private int id;
+    private AccountType type;
+    private Location userLocation;
+    private boolean active;
 
     public User(String name, String username, String password, AccountType type, boolean active) {
         this.name = name;

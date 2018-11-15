@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.markabhan.donationtracker.model.LocationDatabase;
-import com.example.markabhan.donationtracker.model.UserDatabase;
 import com.example.markabhan.donationtracker.model.Location;
 
 import java.io.BufferedReader;
@@ -21,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        UserDatabase userData = new UserDatabase();
 
         Button loginScreenButton = findViewById(R.id.go_to_login_button);
         loginScreenButton.setOnClickListener(new View.OnClickListener() {

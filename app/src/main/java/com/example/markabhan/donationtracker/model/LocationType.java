@@ -1,7 +1,8 @@
 package com.example.markabhan.donationtracker.model;
 
+@SuppressWarnings({"ALL", "unused"})
 public enum LocationType {
-    DROP_OFF("Drop Off"), STORE("Store"), WAREHOUSE("Warehouse");
+    DROP_OFF("Drop Off"), STORE("Store"), @SuppressWarnings("unused") WAREHOUSE("Warehouse");
 
     private String type;
 
