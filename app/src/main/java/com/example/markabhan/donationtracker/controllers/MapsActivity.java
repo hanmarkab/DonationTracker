@@ -4,7 +4,6 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.example.markabhan.donationtracker.model.LatitudeLongitude;
-import com.example.markabhan.donationtracker.model.ListConverter;
 import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.LocationDatabase;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -13,9 +12,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.google.android.gms.maps.model.MarkerOptions;
 
