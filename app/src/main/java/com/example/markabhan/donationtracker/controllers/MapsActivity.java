@@ -3,6 +3,8 @@ package com.example.markabhan.donationtracker.controllers;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.markabhan.donationtracker.model.LatitudeLongitude;
+import com.example.markabhan.donationtracker.model.ListConverter;
 import com.example.markabhan.donationtracker.model.Location;
 import com.example.markabhan.donationtracker.model.LocationDatabase;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -10,12 +12,17 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+
 import com.google.android.gms.maps.model.MarkerOptions;
 
 @SuppressWarnings("ALL")
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    public static ArrayList<LatLng> listofLatLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +32,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        final ArrayList<Location> fullLocationArray = LocationDatabase.getInstance().getLocationList();
+        ArrayList<LatLng> locationArray = LatitudeLongitude.createLatLngList(fullLocationArray);
+
     }
 
 
@@ -52,4 +63,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
     }
+
+
 }
