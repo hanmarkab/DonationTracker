@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LatitudeLongitudeTest {
 
-    ArrayList<Location> list;
+    private ArrayList<Location> list;
 
     @Before
     public void setUp() {
