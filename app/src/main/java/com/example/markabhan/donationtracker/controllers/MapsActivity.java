@@ -54,6 +54,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
          //Trying to get location lat, long data
         ArrayList<Location> locations = LocationDatabase.getInstance().getLocationList();
+
+
         for (int i = 0; i < locations.size(); i++) {
             Location location = locations.get(i);
             double lat = location.getLatitude();
@@ -62,6 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(loc).title(location.getName() + " " + location.getPhonenum()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
+
+
     }
 
 
