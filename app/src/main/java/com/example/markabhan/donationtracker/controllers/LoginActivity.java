@@ -58,6 +58,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
 
+    private static final int MAX_ATTEMPTS = 3;
+    private int currentAttempts = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,10 +81,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
+
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                if (currentAttempts < MAX_ATTEMPTS) {
+                    attemptLogin();
+                    currentAttempts++;
+                } else {
+                    mPasswordView.setError("Too Many Attempts");
+                    mPasswordView.requestFocus();
+                }
+
             }
         });
         Button mRegisterButton = findViewById(R.id.register_button);
