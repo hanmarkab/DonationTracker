@@ -29,11 +29,20 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleApiClient googleApiClient;
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     private FusedLocationProviderClient mFusedLocationClient;
+    private ArrayList<Location> locations;
+    private LocationDatabase locationDatabase = LocationDatabase.getInstance();
     Location locationUse;
     double lat;
     double lon;
@@ -60,7 +69,30 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             }
         });
 
-        new LocationDatabase(enterLocations());
+        locations = null;
+
+        if (locations == null) {
+            locations = new ArrayList<>();
+
+            Thread loadData = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    locations = enterLocations();
+                }
+            });
+
+            loadData.start();
+
+            try{
+                loadData.join();
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+
+            new LocationDatabase(locations);
+        }
+
+        //new LocationDatabase(enterLocations());
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -101,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onStop();
     }
 
-    private ArrayList<Location> enterLocations () {
+    /*private ArrayList<Location> enterLocations () {
         ArrayList<Location> locationList = new ArrayList<>();
         try {
             BufferedReader scanner = new BufferedReader(new InputStreamReader(getAssets().open("LocationData.csv")));
@@ -131,6 +163,38 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         Log.d("displayed", "finished");
         return locationList;
 
+    }*/
+
+    private ArrayList<Location> enterLocations() {
+        HttpURLConnection con;
+        ArrayList<Location> locationList = new ArrayList<>();
+        String url = "http://35.231.154.102/?table=locations";
+
+        try {
+
+            URL myurl = new URL(url);
+            con = (HttpURLConnection) myurl.openConnection();
+
+            con.setRequestMethod("GET");
+
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+
+                String line;
+
+                while ((line = in.readLine()) != null) {
+                    System.out.println(line);
+                    String[] s = line.split(",", -1);
+                    Location loc = new Location(s[0], Double.valueOf(s[6]), Double.valueOf(s[7]),s[5], s[8], s[4], Integer.valueOf(s[2]), s[3], Integer.valueOf(s[9]), s[1], null, null);
+                    locationList.add(loc);
+                }
+            }
+
+            con.disconnect();
+
+        } catch (IOException e) {
+            System.out.println("error "+e);
+        }
+        return locationList;
     }
 
     @Override

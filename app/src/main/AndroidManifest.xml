@@ -11,12 +11,12 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:fullBackupContent="@xml/backup_descriptor"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
@@ -49,7 +49,7 @@
         <activity
             android:name=".DonationInfoActivity"
             android:label="@string/title_activity_donation_info"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -64,8 +64,14 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+            android:label="@string/title_activity_maps" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".UserListActivity" />
+        <activity android:name=".UserLockActivity" />
     </application>
 
 </manifest>
