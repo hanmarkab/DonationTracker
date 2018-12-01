@@ -306,8 +306,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             if (success) {
                 currentAttempts = 0;
-                if (correctUser.getType().equals(AccountType.LOCATION_EMPLOYEE)) {
+                if (correctUser.getLocked()) {
+                    mPasswordView.setError("User is Locked");
+                    mPasswordView.requestFocus();
+                } else if (correctUser.getType().equals(AccountType.LOCATION_EMPLOYEE)) {
                     startActivity(new Intent(LoginActivity.this, LocationEmployeePageActivity.class));
+                } else if (correctUser.getType().equals(AccountType.ADMIN)) {
+                    startActivity(new Intent(LoginActivity.this, UserListActivity.class));
                 } else {
                     startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
                 }

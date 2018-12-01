@@ -30,4 +30,12 @@ public class UserDatabase {
     public void clear() {
         userList = new ArrayList<>();
     }
+
+    public String[] toArray() {
+        String[] array = new String[userList.size()];
+        for (int i = 0; i < userList.size(); i++) {
+            array[i] = userList.get(i).getName();
+        }
+        return array;
+    }
 }
