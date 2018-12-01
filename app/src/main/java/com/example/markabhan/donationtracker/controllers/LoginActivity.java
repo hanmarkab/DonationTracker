@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
 
     private static final int MAX_ATTEMPTS = 3;
-    private int currentAttempts = 0;
+    private static int currentAttempts = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     attemptLogin();
                     currentAttempts++;
                 } else {
-                    mPasswordView.setError("Too Many Attempts");
+                    mPasswordView.setError("Too Many Incorrect Attempts");
                     mPasswordView.requestFocus();
                 }
 
@@ -100,6 +100,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
+            }
+        });
+
+        Button mGuestLoginButton = findViewById(R.id.guest_login_button);
+        mGuestLoginButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
             }
         });
     }
@@ -297,6 +305,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
 
             if (success) {
+                currentAttempts = 0;
                 if (correctUser.getType().equals(AccountType.LOCATION_EMPLOYEE)) {
                     startActivity(new Intent(LoginActivity.this, LocationEmployeePageActivity.class));
                 } else {
