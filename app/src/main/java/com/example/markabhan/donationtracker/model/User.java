@@ -8,6 +8,7 @@ public class User {
     private AccountType type;
     private Location userLocation;
     private boolean active;
+    private boolean locked;
 
     public User(String name, String username, String password, AccountType type, boolean active) {
         this.name = name;
@@ -16,6 +17,15 @@ public class User {
         this.type = type;
         id = UserDatabase.getInstance().size();
         this.active = active;
+        locked = false;
+    }
+
+    public boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
     }
 
     public String getName() {
