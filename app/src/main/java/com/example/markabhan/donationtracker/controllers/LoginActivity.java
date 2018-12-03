@@ -310,7 +310,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     mPasswordView.setError("User is Locked");
                     mPasswordView.requestFocus();
                 } else if (correctUser.getType().equals(AccountType.LOCATION_EMPLOYEE)) {
-                    startActivity(new Intent(LoginActivity.this, LocationEmployeePageActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, LocationEmployeePageActivity.class);
+                    intent.putExtra("User", correctUser.getId());
+                    startActivity(intent);
                 } else if (correctUser.getType().equals(AccountType.ADMIN)) {
                     startActivity(new Intent(LoginActivity.this, UserListActivity.class));
                 } else {

@@ -68,6 +68,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
     private void openMapActivity() {
         Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("User", this.getIntent().getIntExtra("User", -1));
         startActivity(intent);
     }
 
