@@ -20,7 +20,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
@@ -28,11 +27,7 @@ import com.google.android.gms.tasks.Task;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -42,8 +37,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     private FusedLocationProviderClient mFusedLocationClient;
     private ArrayList<Location> locations;
-    private LocationDatabase locationDatabase = LocationDatabase.getInstance();
-    Location locationUse;
     double lat;
     double lon;
 
@@ -69,30 +62,24 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             }
         });
 
-        locations = null;
+        locations = new ArrayList<>();
 
-        if (locations == null) {
-            locations = new ArrayList<>();
-
-            Thread loadData = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    locations = enterLocations();
-                }
-            });
-
-            loadData.start();
-
-            try{
-                loadData.join();
-            }catch (InterruptedException e){
-                e.printStackTrace();
+        Thread loadData = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                locations = enterLocations();
             }
+        });
 
-            new LocationDatabase(locations);
+        loadData.start();
+
+        try{
+            loadData.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
         }
 
-        //new LocationDatabase(enterLocations());
+        new LocationDatabase(locations);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
